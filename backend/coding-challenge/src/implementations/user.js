@@ -4,18 +4,22 @@ export class User {
     }
 
     borrow(book, library) {
-        throw new Error('Not implemented');
+        library.removeBook(book);
+        this.books.push(book);
     }
 
     hasBook(book) {
-        throw new Error('Not implemented');
+        return this.books.some(b => b.name === book.name);
     }
 
     return(book, library) {
-        throw new Error('Not implemented');
+        if (!this.hasBook(book)) return false;
+        this.books = this.books.filter(b => b !== book);
+        library.addBook(book);
+        return true;
     }
 
     getBookNames() {
-        throw new Error('Not implemented');
+        return this.books.map(book => book.name);
     }
 }
