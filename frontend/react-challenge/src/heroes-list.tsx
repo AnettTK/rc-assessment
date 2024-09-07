@@ -19,9 +19,8 @@ function HeroesList() {
     <>
       <h2>Heroes</h2>
       <ol className='heroes-list'>
-        {heroes.length === 0 ? (
-          <li>{loadingStatus}</li>
-        ) : (
+        <li>{loadingStatus}</li>
+        {
           heroes.map((hero) => (
             <li
               key={hero.id}
@@ -33,7 +32,7 @@ function HeroesList() {
               <span style={{ fontSize: '12px' }}>{hero.available ? ' - ¨Available¨' : ''}</span>
             </li>
           ))
-        )}
+        }
       </ol>
     </>
   );
